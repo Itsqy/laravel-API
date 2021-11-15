@@ -20,13 +20,13 @@
         }
 
     </style>
-    <title>Doa harian</title>
+    <title>wisata ajah</title>
 </head>
 
 <body>
 
     <div class="container text-center pading">
-        <h1>Doa Harian</h1>
+        <h1>Daftar Wisata Kunjungan Impian</h1>
         <a href="{{ route('post') }}">Post Data</a>
     </div>
 
