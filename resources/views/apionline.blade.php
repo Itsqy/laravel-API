@@ -31,7 +31,7 @@
     </div>
 
     <div class="container pd">
-        <table class="table table-bordered">
+        <table class="table table-dark table-striped">
             <thead>
                 <tr>
                     <th scope="col">id</th>
