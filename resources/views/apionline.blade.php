@@ -40,7 +40,7 @@
                     <th scope="col">nama wisata</th>
                     <th scope="col">slug</th>
                     <th scope="col">harga</th>
-                    <th scope="col">deskripsi</th>
+
                     <th scope="col">kota</th>
                     <th scope="col">provinsi</th>
                     <th scope="col">alamat</th>
@@ -64,7 +64,7 @@
                         <td>{{ $d['nama_wisata'] }}</td>
                         <td>{{ $d['slug'] }}</td>
                         <td> Rp. {{ $d['harga'] }}</td>
-                        <td>{{ $d['deskripsi'] }}</td>
+
                         <td>{{ $d['kota'] }}</td>
                         <td>{{ $d['provinsi'] }}</td>
                         <td>{{ $d['alamat'] }}</td>
