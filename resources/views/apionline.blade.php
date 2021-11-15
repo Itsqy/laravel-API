@@ -36,6 +36,7 @@
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">kategori id</th>
+                    <th scope="col">image</th>
                     <th scope="col">nama wisata</th>
                     <th scope="col">slug</th>
                     <th scope="col">harga</th>
@@ -46,7 +47,7 @@
                     <th scope="col">waktu buka</th>
                     <th scope="col">latitude</th>
                     <th scope="col">longitude</th>
-                    <th scope="col">image</th>
+
                     <th scope="col">created at</th>
                     <th scope="col">updated at</th>
                 </tr>
@@ -56,6 +57,10 @@
                     <tr>
                         <td scope="row">{{ $d['id'] }}</td>
                         <td>{{ $d['kategori_id'] }}</td>
+                        <td>
+                            <img src="<?php echo $d['image']; ?>" alt=""
+                                style="max-width: 100px !important; border-radius:5px;">
+                        </td>
                         <td>{{ $d['nama_wisata'] }}</td>
                         <td>{{ $d['slug'] }}</td>
                         <td> Rp. {{ $d['harga'] }}</td>
@@ -66,9 +71,7 @@
                         <td>{{ $d['waktu_buka'] }}</td>
                         <td>{{ $d['latitude'] }}</td>
                         <td>{{ $d['longitude'] }}</td>
-                        <td>
-                            <img src="<?php echo $d['image']; ?>" alt="">
-                        </td>
+
                         <td>{{ $d['created_at'] }}</td>
                         <td>{{ $d['updated_at'] }}</td>
                         {{-- <td> Rp .{{ $d[number_format('harga')] }}</td> --}}
