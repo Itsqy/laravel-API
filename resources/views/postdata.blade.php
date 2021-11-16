@@ -37,7 +37,7 @@
         <br>
         <a href="{{ route('kategori') }}">kategori</a>
         <br>
-        <a href="{{ route('login') }}">kategori</a>
+        <a href="{{ route('login') }}">login</a>
     </div>
 
     <div class="container pd ">
