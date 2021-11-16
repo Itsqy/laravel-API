@@ -32,7 +32,7 @@
 <body>
 
     <div class="container text-center pading">
-        <h1>Registrasi</h1>
+        <h1>login</h1>
         <a href="{{ route('doa') }}">back to doa</a>
         <br>
         <a href="{{ route('kategori') }}">kategori</a>

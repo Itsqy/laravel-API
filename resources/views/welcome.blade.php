@@ -28,6 +28,10 @@
     <div class="container text-center pading">
         <h1>Doa Harian</h1>
         <a href="{{ route('post') }}">Post Data</a>
+        <br>
+        <a href="{{ route('kategori') }}">kategori</a>
+        <br>
+        <a href="{{ route('login') }}">login</a>
     </div>
 
     <div class="container pd">
