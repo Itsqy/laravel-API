@@ -36,6 +36,8 @@
         <a href="{{ route('doa') }}">back to doa</a>
         <br>
         <a href="{{ route('kategori') }}">kategori</a>
+        <br>
+        <a href="{{ route('login') }}">kategori</a>
     </div>
 
     <div class="container pd ">

@@ -50,4 +50,18 @@ class DoaController extends Controller
         Http::post('https://ictjuara.000webhostapp.com/api/add-kategori', $request->input());
         return redirect()->back();
     }
+
+    public function login()
+    {
+        return view('loginapi');
+    }
+
+    public function loginposting(Request $request)
+    {
+
+
+        // dd($request);
+        $response = Http::post('https://ictjuara.000webhostapp.com/api/login', $request->input())->json();
+        return view('datauser', compact('response'));
+    }
 }

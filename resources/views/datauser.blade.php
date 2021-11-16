@@ -15,50 +15,52 @@
         }
 
         .pd {
-            width: 40%;
-            padding-top: 50px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .mb-3 {
-            text-align: left !important;
+            padding-top: 30px;
+            padding-bottom: 100px;
         }
 
     </style>
-    <title>Doa harian</title>
+    <title>wisata ajah</title>
 </head>
 
 <body>
 
     <div class="container text-center pading">
-        <h1>Registrasi</h1>
-        <a href="{{ route('doa') }}">back to doa</a>
-        <br>
-        <a href="{{ route('kategori') }}">kategori</a>
+        <h1>Daftar Wisata Kunjungan Impian</h1>
+        <a href="{{ route('post') }}">Post Data</a>
     </div>
 
-    <div class="container pd ">
-        <form action="{{ route('logpost') }}" method="post">
-            @csrf
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
+    <div class="container pd">
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">email</th>
+                    <th scope="col">phone </th>
+                    <th scope="col">city</th>
+                    <th scope="col">img</th>
 
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-            </div>
+                    <th scope="col">created at</th>
+                    <th scope="col">updated at</th>
+                </tr>
+            </thead>
+            <tbody>
 
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                <tr>
+                    <td scope="row">{{ $response['data']['id'] }}</td>
+                    <td>{{ $response['data']['name'] }}</td>
+                    <td>{{ $response['data']['email'] }}</td>
+                    <td>{{ $response['data']['phone'] }}</td>
+                    <td> {{ $response['data']['city'] }}</td>
+                    <td>{{ $response['data']['img'] }}</td>
+                    <td>{{ $response['data']['created_at'] }}</td>
+                    <td>{{ $response['data']['updated_at'] }}</td>
+                    {{-- <td> Rp .{{ $d[number_format('harga')] }}</td> --}}
+                </tr>
+
+            </tbody>
+        </table>
     </div>
 
 
