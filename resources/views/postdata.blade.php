@@ -47,13 +47,14 @@
                     aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">city</label>
-                <input type="text" name="city" class="form-control" id="exampleInputPassword1">
-            </div>
+
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">city</label>
+                <input type="text" name="city" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

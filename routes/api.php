@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\RestoranController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'daftar']);
 Route::post('/login', [AuthController::class, 'login']);
+
+// CRUD Resto beserta menunya
+Route::post('/add/resto-dan-menu', [RestoranController::class, 'createRestoMenu']);
+Route::get('/resto/{id}', [RestoranController::class, 'getRestoMenu']);

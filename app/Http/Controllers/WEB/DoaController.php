@@ -21,8 +21,7 @@ class DoaController extends Controller
     {
         $response = Http::get('https://ictjuara.000webhostapp.com/api/wisata');
         $data = $response->json();
-
-        // karna api nya bang feb itu didalam nya ada "data", maka kita mesti open si "data" ini dulu make var di bawah
+        // karn a api nya bang feb itu didalam nya ada "data", maka kita mesti open si "data" ini dulu make var di bawah
         $data = $data['data'];
         // dd($data);
 
