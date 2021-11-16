@@ -53,15 +53,25 @@ class DoaController extends Controller
 
     public function login()
     {
-        return view('loginapi');
+
+        $response['status'] = 1;
+        return view('loginapi', compact('response'));
     }
 
     public function loginposting(Request $request)
     {
 
+        $response = Http::post('https://ictjuara.000webhostapp.com/api/login', $request->input())->json();
+        $success = $response['status'];
+
+
+        if ($response['status'] == 0) {
+            return view('loginapi', compact('response'));
+        };
+
+        return view('datauser', compact('response'));
 
         // dd($request);
-        $response = Http::post('https://ictjuara.000webhostapp.com/api/login', $request->input())->json();
-        return view('datauser', compact('response'));
+
     }
 }

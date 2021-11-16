@@ -39,12 +39,15 @@
     </div>
 
     <div class="container pd ">
+
+        @if ($response['status'] == 0)
+            <div class="alert alert-danger">{{ $response['message'] }}</div>
+        @endif
         <form action="{{ route('logpost') }}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
+                <input name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
 
