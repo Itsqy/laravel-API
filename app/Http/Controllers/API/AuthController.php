@@ -160,6 +160,13 @@ class AuthController extends Controller
 
     public function changePassword(Request $request, $user_id)
     {
+        $pesan = [
+
+            'email.required' => "email diisi dong ",
+            'password.required' => "password diisi dong ",
+            'password.confirmed' => "konfirm diisi dong ",
+
+        ];
         $user = User::findOrFail($user_id);
 
         if (!Hash::check($request->get('password'), $user->password)) {
@@ -178,7 +185,7 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'password' => 'required',
             'new_password' => 'required|string|min:4|confirmed',
-        ]);
+        ], $pesan);
 
         $user->password = bcrypt($request->get('new_password'));
         $user->save();
