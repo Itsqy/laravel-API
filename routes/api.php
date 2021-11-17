@@ -33,4 +33,4 @@ Route::get('/menu', [RestoranController::class, 'getAllmenu']);
 
 //edit password
 
-Route::put('/update-pass/{user_id}', [AuthController::class, 'updatePass'])->name('update-pass');
+Route::put('/update-pass/{user_id}', [AuthController::class, 'changePassword'])->name('update-pass');
