@@ -20,14 +20,18 @@
         }
 
     </style>
-    <title>wisata ajah</title>
+    <title>data user</title>
 </head>
 
 <body>
 
     <div class="container text-center pading">
-        <h1>Daftar Wisata Kunjungan Impian</h1>
+        <h1>data user</h1>
         <a href="{{ route('post') }}">Post Data</a>
+        <br>
+        <a href="{{ route('editpassword') }}">edit password</a>
+        <br>
+
     </div>
 
     <div class="container pd">

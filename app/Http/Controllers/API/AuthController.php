@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Menu;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Validator as ValidationValidator;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
@@ -90,15 +92,38 @@ class AuthController extends Controller
             'data' => $user
         ], Response::HTTP_OK);
     }
-
-    public function responError($status, $pesan)
+    public function editprofile(Request $request, $user_id)
     {
+        $user = User::findOrFail($user_id);
+        $validasi = Validator::make($request->all(), [
+            'name'           => 'required',
+            'email'         => 'required',
+            'address'        => 'required',
+            'telp'         => 'required',
+
+        ]);
+
+        if ($validasi->fails()) {
+            $val = $validasi->errors()->all();
+            return $this->responError(0, $val[0]);
+        }
+        // return dd($request);
+        $user->update([
+            'name'           => $request->name,
+            'email'         => $request->email,
+            'address'        => $request->address,
+            'telp'         => $request->telp,
+            'photo'         => $request->photo,
+
+        ]);
 
         return response()->json([
-            'status' => $status,
-            'message' => $pesan
-        ], Response::HTTP_OK);
+            'status' => 1,
+            'pesan' => "profile berhasil diupdate",
+            'result' => $user
+        ], 200);
     }
+
 
     public function login(Request $request)
     {
@@ -131,5 +156,48 @@ class AuthController extends Controller
             'pesan' => "$user->name, Registrasi anda berhasil ! ",
             'data' => $user
         ], Response::HTTP_OK);
+    }
+
+    public function changePassword(Request $request, $user_id)
+    {
+        $user = User::findOrFail($user_id);
+
+        if (!Hash::check($request->get('password'), $user->password)) {
+            return response()->json([
+                'status' => 0,
+                'pesan' => "password salah",
+            ], 400);
+        }
+
+        if (strcmp($request->get('password'), $request->get('new_password')) == 0) {
+            return response()->json([
+                'status' => 0,
+                'pesan' => "password tidak bleh sama",
+            ], 400);
+        }
+        $validatedData = $request->validate([
+            'password' => 'required',
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user->password = bcrypt($request->get('new_password'));
+        $user->save();
+
+        return response()->json([
+
+            'status' => 1,
+            'pesan' => "edit password berhasil berhasil ! ",
+            'result' => $user
+        ], Response::HTTP_OK);
+    }
+
+
+    public function responError($status, $pesan)
+    {
+
+        return response()->json([
+            'status' => $status,
+            'message' => $pesan
+        ], Response::HTTP_UNAUTHORIZED);
     }
 }

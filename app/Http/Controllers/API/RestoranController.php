@@ -5,7 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\Restoran;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 
 class RestoranController extends Controller
@@ -69,17 +71,36 @@ class RestoranController extends Controller
 
     public function getRestoMenu($id)
     {
-        $resto = Restoran::where('id', $id)->get();
-        $data = Menu::where('resto_id', $id)->get();
+        $resto = Restoran::where('id', $id)->firstx();
+        if (!$resto)
+            return $this->responError(0, "data restoran tidak ada!!");
 
+        $data = Menu::where('resto_id', $resto->id)->get();
         return response()->json([
-
             'status' => 1,
             'pesan' => "Berhasil ",
             'resto' => $resto,
             'menu' => $data,
-
-
         ], Response::HTTP_OK);
+    }
+
+    public function getAllmenu()
+    {
+        $menu = Menu::all();
+
+        return response()->json([
+            'status' => 1,
+            'pesan' => "berhasil mendapatkan semua menu",
+            'result' => $menu
+        ], Response::HTTP_OK);
+    }
+
+    public function responError($status, $pesan)
+    {
+
+        return response()->json([
+            'status' => $status,
+            'pesan' => $pesan,
+        ], Response::HTTP_NOT_FOUND);
     }
 }

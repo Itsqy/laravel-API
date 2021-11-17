@@ -22,7 +22,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'daftar']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::put('/edit/{user_id}', [AuthController::class, 'editprofile']);
 
 // CRUD Resto beserta menunya
 Route::post('/add/resto-dan-menu', [RestoranController::class, 'createRestoMenu']);
 Route::get('/resto/{id}', [RestoranController::class, 'getRestoMenu']);
+
+//get smeua menu
+Route::get('/menu', [RestoranController::class, 'getAllmenu']);
+
+//edit password
+
+Route::put('/update-pass/{user_id}', [AuthController::class, 'updatePass'])->name('update-pass');
