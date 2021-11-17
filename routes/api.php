@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/register', [AuthController::class, 'daftar']);
+Route::post('/register', [AuthController::class, 'registrasi']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::put('/edit/{user_id}', [AuthController::class, 'editprofile']);
 
