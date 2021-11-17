@@ -177,7 +177,7 @@ class AuthController extends Controller
         }
         $validatedData = $request->validate([
             'password' => 'required',
-            'new_password' => 'required|string|min:8|confirmed',
+            'new_password' => 'required|string|min:4|confirmed',
         ]);
 
         $user->password = bcrypt($request->get('new_password'));
