@@ -182,7 +182,7 @@ class AuthController extends Controller
         $user = User::where('id', $user_id)->first();
 
         if (!$user) {
-            return $this->responError(0, "password tidak ditemukan");
+            return $this->responError(0, "akun tidak ditemukan");
         }
 
         if (!Hash::check($request->get('password'), $user->password)) {
