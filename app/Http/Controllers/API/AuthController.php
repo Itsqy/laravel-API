@@ -97,7 +97,7 @@ class AuthController extends Controller
 
 
 
-        $user = User::where('id', $user_id);
+        $user = User::where('id', $user_id)->first();
 
         if (!$user) {
             return $this->responError(0, "profile tidak ditemukan");
@@ -179,10 +179,10 @@ class AuthController extends Controller
 
         ];
 
-        $user = User::where('id', $user_id);
+        $user = User::where('id', $user_id)->first();
 
         if (!$user) {
-            return $this->responError(0, "profile tidak ditemukan");
+            return $this->responError(0, "password tidak ditemukan");
         }
 
         if (!Hash::check($request->get('password'), $user->password)) {
