@@ -94,7 +94,16 @@ class AuthController extends Controller
     }
     public function editprofile(Request $request, $user_id)
     {
-        $user = User::findOrFail($user_id);
+
+
+
+        $user = User::where('id', $user_id);
+
+        if (!$user) {
+            return $this->responError(0, "profile tidak ditemukan");
+        }
+
+        // $user = User::findOrFail($user_id);
         $validasi = Validator::make($request->all(), [
             'name'           => 'required',
             'email'         => 'required',
@@ -102,6 +111,8 @@ class AuthController extends Controller
             'telp'         => 'required',
 
         ]);
+
+
 
         if ($validasi->fails()) {
             $val = $validasi->errors()->all();
@@ -167,7 +178,12 @@ class AuthController extends Controller
             'password.confirmed' => "konfirm diisi dong ",
 
         ];
-        $user = User::findOrFail($user_id);
+
+        $user = User::where('id', $user_id);
+
+        if (!$user) {
+            return $this->responError(0, "profile tidak ditemukan");
+        }
 
         if (!Hash::check($request->get('password'), $user->password)) {
             return response()->json([
