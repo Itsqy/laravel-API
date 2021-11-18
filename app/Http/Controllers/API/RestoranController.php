@@ -136,8 +136,16 @@ class RestoranController extends Controller
         $title = 'search';
         $keyword = $request->search;
         // $JumlahUser = Menu::all()->count();
+        $menu = Menu::where('nama_menu', 'like', "%" . $keyword . "%")->first();
+
+        if (!$menu) {
+            return $this->responError(0, "data yang dicari tidak ada ");
+        }
+
+
         $menu = Menu::where('nama_menu', 'like', "%" . $keyword . "%")->get();
         // return view('user.produk.index', compact('produk', 'title', 'JumlahUser'))->with('i', (request()->input('page', 1) - 1) * 5);
+
 
         return response()->json([
             'status' => 1,
