@@ -27,6 +27,7 @@ Route::put('/edit/{user_id}', [AuthController::class, 'editprofile']);
 // CRUD Resto beserta menunya
 Route::post('/add/resto-dan-menu', [RestoranController::class, 'createRestoMenu']);
 Route::get('/resto/{id}', [RestoranController::class, 'getRestoMenu']);
+Route::put('/update/{id}', [RestoranController::class, 'editRestoMenu']);
 
 //get smeua menu
 Route::get('/menu', [RestoranController::class, 'getAllmenu']);

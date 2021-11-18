@@ -8,6 +8,7 @@ use App\Models\Restoran;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
 class RestoranController extends Controller
@@ -82,6 +83,36 @@ class RestoranController extends Controller
             'resto' => $resto,
             'menu' => $data,
         ], Response::HTTP_OK);
+    }
+    public function editRestoMenu(Request $request, $resto_id)
+    {
+        $resto = Restoran::where('id', $resto_id)->first();
+        if (!$resto) {
+            return $this->responError(0, "data restoran tidak ada!!");
+        }
+
+
+        $validasi = Validator::make($request->all(), [
+            'nama_resto'    => 'required',
+            'alamat'        => 'required',
+            'telp'     => 'required',
+            'jam_buka'     => 'required',
+            'rating'     => 'required',
+        ]);
+
+        if ($validasi->fails()) {
+            $val = $validasi->errors()->all();
+            return $this->responError(0, $val[0]);
+        }
+
+        $resto->update([
+            'nama_resto'           => $request->nama_resto,
+            'alamat'         => $request->alamat,
+            'telp'        => $request->telp,
+            'jam_buka'         => $request->jam_buka,
+            'rating'         => $request->rating,
+
+        ]);
     }
 
     public function getAllmenu()

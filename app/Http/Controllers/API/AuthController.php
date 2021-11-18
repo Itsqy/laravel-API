@@ -95,8 +95,6 @@ class AuthController extends Controller
     public function editprofile(Request $request, $user_id)
     {
 
-
-
         $user = User::where('id', $user_id)->first();
         //jika id user tidak ad
         if (!$user) {
@@ -111,8 +109,6 @@ class AuthController extends Controller
             'telp'         => 'required',
 
         ]);
-
-
 
         if ($validasi->fails()) {
             $val = $validasi->errors()->all();
