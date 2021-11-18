@@ -131,6 +131,21 @@ class RestoranController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function searchmenu(Request $request)
+    {
+        $title = 'search';
+        $keyword = $request->search;
+        // $JumlahUser = Menu::all()->count();
+        $menu = Menu::where('nama', 'like', "%" . $keyword . "%")->paginate(5);
+        // return view('user.produk.index', compact('produk', 'title', 'JumlahUser'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+        return response()->json([
+            'status' => 1,
+            'pesan' => "berhasil mendapatkan semua menu",
+            'result' => $menu
+        ], Response::HTTP_OK);
+    }
+
     public function responError($status, $pesan)
     {
 
