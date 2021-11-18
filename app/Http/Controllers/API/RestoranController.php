@@ -134,6 +134,10 @@ class RestoranController extends Controller
     public function searchmenu(Request $request)
     {
         $title = 'search';
+        if (empty($request->search)) {
+            return $this->getAllmenu();
+        }
+
         $keyword = $request->search;
         // $JumlahUser = Menu::all()->count();
         $menu = Menu::where('nama_menu', 'like', "%" . $keyword . "%")->first();
