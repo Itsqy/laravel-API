@@ -182,10 +182,17 @@ class AuthController extends Controller
                 'pesan' => "password tidak bleh sama",
             ], 400);
         }
-        $validatedData = $request->validate([
+        $validasi =  Validator::make($request->all(), [
             'password' => 'required',
             'new_password' => 'required|string|min:4|confirmed',
         ], $pesan);
+
+
+
+        if ($validasi->fails()) {
+            $val = $validasi->errors()->all();
+            return $this->responError(0, $val[0]);
+        }
 
         $user->password = bcrypt($request->get('new_password'));
         $user->save();
