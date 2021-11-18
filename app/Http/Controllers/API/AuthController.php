@@ -164,7 +164,7 @@ class AuthController extends Controller
         return response()->json([
 
             'status' => 1,
-            'pesan' => "$user->name, Registrasi anda berhasil ! ",
+            'pesan' => "$user->name, login anda berhasil ! ",
             'data' => $user
         ], Response::HTTP_OK);
     }
