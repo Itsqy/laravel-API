@@ -71,7 +71,7 @@ class RestoranController extends Controller
 
     public function getRestoMenu($id)
     {
-        $resto = Restoran::where('id', $id)->firstx();
+        $resto = Restoran::where('id', $id)->first();
         if (!$resto)
             return $this->responError(0, "data restoran tidak ada!!");
 
