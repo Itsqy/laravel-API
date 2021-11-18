@@ -93,11 +93,11 @@ class RestoranController extends Controller
 
 
         $validasi = Validator::make($request->all(), [
-            'nama_resto'    => 'required',
-            'alamat'        => 'required',
-            'telp'     => 'required',
-            'jam_buka'     => 'required',
-            'rating'     => 'required',
+            'nama_resto'    => "required",
+            'alamat'        => "required",
+            'telp'     => "required",
+            'jam_buka'     => "required",
+            'rating'     => "required",
         ]);
 
         if ($validasi->fails()) {
@@ -113,6 +113,11 @@ class RestoranController extends Controller
             'rating'         => $request->rating,
 
         ]);
+        return response()->json([
+            'status' => 1,
+            'pesan' => "berhasil update semua data resto",
+            'update an' => $resto
+        ], Response::HTTP_OK);
     }
 
     public function getAllmenu()
