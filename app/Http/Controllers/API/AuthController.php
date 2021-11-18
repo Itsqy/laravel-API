@@ -175,7 +175,7 @@ class AuthController extends Controller
 
             'email.required' => "email diisi dong ",
             'password.required' => "password diisi dong ",
-            'password.confirmed' => "konfirm diisi dong ",
+            'new_password.confirmed' => "konfirm diisi dong ",
 
         ];
 
