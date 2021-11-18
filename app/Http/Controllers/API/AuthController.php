@@ -98,7 +98,7 @@ class AuthController extends Controller
 
 
         $user = User::where('id', $user_id)->first();
-
+        //jika id user tidak ad
         if (!$user) {
             return $this->responError(0, "profile tidak ditemukan");
         }
@@ -188,14 +188,14 @@ class AuthController extends Controller
         if (!Hash::check($request->get('password'), $user->password)) {
             return response()->json([
                 'status' => 0,
-                'pesan' => "password salah",
+                'pesan' => "password salah ngab",
             ], 400);
         }
 
         if (strcmp($request->get('password'), $request->get('new_password')) == 0) {
             return response()->json([
                 'status' => 0,
-                'pesan' => "password tidak bleh sama",
+                'pesan' => "password g bisa sama",
             ], 400);
         }
         $validasi =  Validator::make($request->all(), [
