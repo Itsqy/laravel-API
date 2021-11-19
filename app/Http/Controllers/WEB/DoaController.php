@@ -36,7 +36,7 @@ class DoaController extends Controller
     public function posting(Request $request)
     {
         // dd($request);
-        Http::post('https://ictjuara.000webhostapp.com/api/regis', $request->input());
+        Http::post('http://firstapi2303.herokuapp.com/api/register', $request->input());
         return redirect()->back();
     }
 
@@ -61,7 +61,7 @@ class DoaController extends Controller
     public function loginposting(Request $request)
     {
 
-        $response = Http::post('https://ictjuara.000webhostapp.com/api/login', $request->input())->json();
+        $response = Http::post('http://firstapi2303.herokuapp.com/api/login', $request->input())->json();
         $success = $response['status'];
 
 

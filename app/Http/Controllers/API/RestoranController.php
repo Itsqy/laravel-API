@@ -251,7 +251,7 @@ class RestoranController extends Controller
         $validasi = Validator::make($request->all(), [
             'nama_resto'    => "required",
             'alamat'        => "required",
-            'telp'     => "required",
+            'telp'           => "required",
             'jam_buka'     => "required",
 
         ]);
