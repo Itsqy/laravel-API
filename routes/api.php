@@ -26,13 +26,21 @@ Route::put('/edit/{user_id}', [AuthController::class, 'editprofile']);
 
 // CRUD Resto beserta menunya
 Route::post('/add/resto-dan-menu', [RestoranController::class, 'createRestoMenu']);
+Route::put('/update/resto-dan-menu/{resto_id}', [RestoranController::class, 'editRestoMenu']);
 Route::get('/resto/{id}', [RestoranController::class, 'getRestoMenu']);
 Route::get('/search', [RestoranController::class, 'searchmenu']);
-Route::put('/update/{id}', [RestoranController::class, 'editRestoMenu']);
+//update resto aja
+Route::put('/update/{id}', [RestoranController::class, 'editResto']);
 
 //get smeua menu
 Route::get('/menu', [RestoranController::class, 'getAllmenu']);
 
+//delete menu
+Route::delete('/del/{resto_id}/{menu_id}', [RestoranController::class, 'delRestoMenu']);
+
+//tambah menu berdasarkan  resto ID
+Route::post('/add/menu/{resto_id}', [RestoranController::class, 'createMenu']);
+Route::put('/update/menu/{resto_id}/{menu_id}', [RestoranController::class, 'editMenu']);
 //edit password
 
 Route::put('/update-pass/{user_id}', [AuthController::class, 'changePassword'])->name('update-pass');
