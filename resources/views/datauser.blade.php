@@ -55,9 +55,9 @@
                     <td scope="row">{{ $response['data']['id'] }}</td>
                     <td>{{ $response['data']['name'] }}</td>
                     <td>{{ $response['data']['email'] }}</td>
-                    <td>{{ $response['data']['phone'] }}</td>
-                    <td> {{ $response['data']['city'] }}</td>
-                    <td>{{ $response['data']['img'] }}</td>
+                    {{-- <td>{{ $response['data']['phone'] }}</td> --}}
+                    {{-- <td> {{ $response['data']['city'] }}</td> --}}
+                    {{-- <td>{{ $response['data']['img'] }}</td> --}}
                     <td>{{ $response['data']['created_at'] }}</td>
                     <td>{{ $response['data']['updated_at'] }}</td>
                     {{-- <td> Rp .{{ $d[number_format('harga')] }}</td> --}}

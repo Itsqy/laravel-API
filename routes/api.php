@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\API\RestoranController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WEB\DoaController;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\RestoranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('/register', [AuthController::class, 'registrasi']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/loginposting', [DoaController::class, 'loginposting'])->name('loginposting');
 Route::put('/edit/{user_id}', [AuthController::class, 'editprofile']);
 
 // CRUD Resto beserta menunya
