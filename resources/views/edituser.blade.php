@@ -27,133 +27,50 @@
 
 <body>
 
-    <div class="container text-center pading">
-        <h1>data user</h1>
-        <a href="{{ route('post') }}">Post Data</a>
-        <br>
 
-        <br>
+    <div class="row">
+        <div class="col-4 d-flex justify-content-center text-center">
 
-    </div>
-
-    <div class="content">
-        <div class="page-inner">
-            <div class="page-header">
-                <h4 class="page-title">{{ $title }}</h4>
-                <ul class="breadcrumbs">
-                    <li class="nav-home">
-                        <a href="#">
-                            <i class="flaticon-home"></i>
-                        </a>
-                    </li>
-                    <li class="separator">
-                        <i class="flaticon-right-arrow"></i>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#">{{ $title }}</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">{{ $title }} </div>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('editpost') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
-
-
-                                <div class="row">
-                                    <div class="col-md-1"></div>
-
-                                    <div class="col-md-6">
-
-                                        <div class="form">
-
-                                            <div class="form-group form-show-notify row">
-                                                <div class="col-lg-3 col-md-3 col-sm-4 text-right">
-                                                    <label>Nama :</label>
-                                                </div>
-                                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                                    <input type="text" name="name" class="form-control input-fixed"
-                                                        id="exampleInputPassword1">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group form-show-notify row">
-                                                <div class="col-lg-3 col-md-3 col-sm-4 text-right">
-                                                    <label>email :</label>
-                                                </div>
-                                                <div class="col-lg-4 col-md-9 col-sm-8">
-                                                    <input type="text" name="email" class="form-control input-fixed"
-                                                        id="exampleInputPassword1">
-                                                </div>
-                                            </div>
-
-
-
-                                            <div class="form-group form-show-notify row">
-                                                <div class="col-lg-3 col-md-3 col-sm-4 text-right">
-                                                    <label>phone :</label>
-                                                    <input type="text" name="telp" class="form-control input-fixed"
-                                                        id="exampleInputPassword1">
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group form-show-notify row">
-                                                <div class="col-lg-3 col-md-3 col-sm-4 text-right">
-                                                    <label>address :</label>
-                                                </div>
-                                                <input type="text" name="address" class="form-control input-fixed"
-                                                    id="exampleInputPassword1">
-                                            </div>
-
-                                            <div class="form-group form-show-notify row">
-                                                <div class="col-lg-3 col-md-3 col-sm-4 text-right">
-                                                    <label>photo :</label>
-                                                </div>
-                                                <input type="text" name="photo" class="form-control input-fixed"
-                                                    id="exampleInputPassword1">
-                                            </div>
-
-
-
-                                        </div>
-
-
-
-
-                                    </div>
-
-
-
-                                    <div class="card-footer">
-                                        <div class="form">
-                                            <div class="form-group from-show-notify row">
-                                                <div class="col-lg-3 col-md-3 col-sm-12">
-
-                                                </div>
-                                                <div class="col-lg-4 col-md-9 col-sm-12">
-                                                    <button id="displayNotif" type="submit"
-                                                        class="btn btn-primary">Simpan Perubahan</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
+
+    <div class=" container4">
+        <div class="card d-flex justify-content-center text-center" style="margin: 100px 100px 100px 100px;">
+            <form action="{{ route('editpost') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">name</label>
+                    <input type="text" name="name" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">telp</label>
+                    <input type="text" name="telp" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">address</label>
+                    <input type="text" name="address" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">photo</label>
+                    <input type="text" name="photo" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
