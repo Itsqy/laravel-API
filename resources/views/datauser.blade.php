@@ -23,6 +23,8 @@
     <title>data user</title>
 </head>
 
+
+
 <body>
 
     <div class="container text-center pading">
@@ -42,11 +44,10 @@
                     <th scope="col">name</th>
                     <th scope="col">email</th>
                     <th scope="col">phone </th>
-                    <th scope="col">city</th>
-                    <th scope="col">img</th>
-
+                    <th scope="col">address </th>
                     <th scope="col">created at</th>
                     <th scope="col">updated at</th>
+                    <th scope="col">action</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,11 +56,12 @@
                     <td scope="row">{{ $response['data']['id'] }}</td>
                     <td>{{ $response['data']['name'] }}</td>
                     <td>{{ $response['data']['email'] }}</td>
-                    {{-- <td>{{ $response['data']['phone'] }}</td> --}}
-                    {{-- <td> {{ $response['data']['city'] }}</td> --}}
+                    <td>{{ $response['data']['telp'] }}</td>
+                    <td> {{ $response['data']['address'] }}</td>
                     {{-- <td>{{ $response['data']['img'] }}</td> --}}
                     <td>{{ $response['data']['created_at'] }}</td>
                     <td>{{ $response['data']['updated_at'] }}</td>
+                    <td><a href="{{ route('edit') }}">edit </a></td>
                     {{-- <td> Rp .{{ $d[number_format('harga')] }}</td> --}}
                 </tr>
 

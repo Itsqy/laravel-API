@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\WEB;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class DoaController extends Controller
@@ -67,6 +69,34 @@ class DoaController extends Controller
 
         if ($response['status'] == 0) {
             return view('loginapi', compact('response'));
+        };
+
+        return view('datauser', compact('response'));
+
+        // dd($request);
+
+    }
+
+
+    public function edit()
+    {
+        // $id = User::findOrFail($id);
+        $title = 'edit aja';
+        $response['status'] = 1;
+        return view('edituser', compact('response', 'title'));
+    }
+
+    public function editposting(Request $request)
+    {
+        // $produk = Produk::findOrFail($id)
+        // $id = User::findOrFail($id);
+        // $id = Auth::id();
+        $response = Http::put('http://firstapi2303.herokuapp.com/api/edit', $request->input())->json();
+        $success = $response['status'];
+
+
+        if ($response['status'] == 0) {
+            return view('edituser', compact('response'));
         };
 
         return view('datauser', compact('response'));
