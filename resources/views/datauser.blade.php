@@ -45,6 +45,7 @@
                     <th scope="col">email</th>
                     <th scope="col">phone </th>
                     <th scope="col">address </th>
+                    <th scope="col">photo </th>
                     <th scope="col">created at</th>
                     <th scope="col">updated at</th>
                     <th scope="col">action</th>
