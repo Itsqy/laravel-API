@@ -54,7 +54,7 @@ class AuthController extends Controller
 
             'status' => 1,
             'pesan' => "$request->name, Registrasi anda berhasil ! ",
-            'data' => $user
+            'result' => $user
         ], Response::HTTP_OK);
     }
 
@@ -161,7 +161,7 @@ class AuthController extends Controller
 
             'status' => 1,
             'pesan' => "$user->name, login anda berhasil ! ",
-            'data' => $user
+            'result' => $user
         ], Response::HTTP_OK);
     }
 
