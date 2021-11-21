@@ -20,7 +20,7 @@
         }
 
     </style>
-    <title>data user</title>
+    <title>profile</title>
 </head>
 
 
@@ -28,8 +28,8 @@
 <body>
 
     <div class="container text-center pading">
-        <h1>data user</h1>
-        <a href="{{ route('post') }}">Post Data</a>
+        <h1>My profile</h1>
+        <a href="{{ route('doa') }}">way back home, eaaa</a>
         <br>
 
         <br>
@@ -52,44 +52,13 @@
                 <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i
                             class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i
                             class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
-                <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>
+                <div class=" px-2 rounded mt-4 date ">created at <span
+                        class="join">{{ $response['result']['created_at'] }}</span> </div>
             </div>
         </div>
     </div>
 
-    <div class="container pd">
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">name</th>
-                    <th scope="col">email</th>
-                    <th scope="col">phone </th>
-                    <th scope="col">address </th>
-                    <th scope="col">photo </th>
-                    <th scope="col">created at</th>
-                    <th scope="col">updated at</th>
-                    <th scope="col">action</th>
-                </tr>
-            </thead>
-            <tbody>
 
-                <tr>
-                    <td scope="row">{{ $response['result']['id'] }}</td>
-                    <td>{{ $response['result']['name'] }}</td>
-                    <td>{{ $response['result']['email'] }}</td>
-                    <td>{{ $response['result']['telp'] }}</td>
-                    <td> {{ $response['result']['address'] }}</td>
-                    <td>{{ $response['result']['photo'] }}</td>
-                    <td>{{ $response['result']['created_at'] }}</td>
-                    <td>{{ $response['result']['updated_at'] }}</td>
-                    <td><a href="{{ route('edit', $response['result']['id']) }}">edit </a></td>
-                    {{-- <td> Rp .{{ $d[number_format('harga')] }}</td> --}}
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

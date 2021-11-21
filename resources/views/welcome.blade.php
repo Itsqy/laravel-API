@@ -26,7 +26,9 @@
 <body>
 
     <div class="container text-center pading">
-        <h1>Doa Harian</h1>
+        <h1>Welcome to my dummy API bruhhh xD</h1>
+
+        <h2>choose one, plizzz!!! </h2>
         <a href="{{ route('post') }}">Registerasi</a>
         <br>
         <a href="{{ route('kategori') }}">kategori</a>
@@ -34,30 +36,7 @@
         <a href="{{ route('login') }}">login</a>
     </div>
 
-    <div class="container pd">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">doa</th>
-                    <th scope="col">Ayat</th>
-                    <th scope="col">Latin</th>
-                    <th scope="col">Artinya</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $d)
-                    <tr>
-                        <td scope="row">{{ $d['id'] }}</td>
-                        <td>{{ $d['doa'] }}</td>
-                        <td>{{ $d['ayat'] }}</td>
-                        <td>{{ $d['latin'] }}</td>
-                        <td>{{ $d['artinya'] }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+
 
 
     <!-- Optional JavaScript; choose one of the two! -->

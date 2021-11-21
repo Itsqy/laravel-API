@@ -103,7 +103,7 @@ class DoaController extends Controller
         if ($response['status'] == 0) {
             return view('edituser', compact('response'));
         };
-        return view('datauser', compact('response'));
+        return view('profile', compact('response'));
 
         // $produk = Produk::findOrFail($id)
         // $id = User::findOrFail($id);

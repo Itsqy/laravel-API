@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [DoaController::class, 'doa'])->name('doa');
+Route::get('/home', [DoaController::class, 'doa'])->name('doa');
 Route::get('/login', [DoaController::class, 'login'])->name('login');
 Route::get('/apionline', [DoaController::class, 'apionline'])->name('apionline');
 Route::get('/post-data', [DoaController::class, 'postdata'])->name('post');
