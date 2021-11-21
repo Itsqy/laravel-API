@@ -58,7 +58,7 @@
                     <td>{{ $response['result']['email'] }}</td>
                     <td>{{ $response['result']['telp'] }}</td>
                     <td> {{ $response['result']['address'] }}</td>
-                    {{-- <td>{{ $response['result']['img'] }}</td> --}}
+                    <td>{{ $response['result']['photo'] }}</td>
                     <td>{{ $response['result']['created_at'] }}</td>
                     <td>{{ $response['result']['updated_at'] }}</td>
                     <td><a href="{{ route('edit', $response['result']['id']) }}">edit </a></td>
