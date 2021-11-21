@@ -83,26 +83,31 @@ class DoaController extends Controller
         // $id = User::findOrFail($id);
         $title = 'edit aja';
         $response = Http::get('http://firstapi2303.herokuapp.com/api/user/' . $user_id)->json();
-
-        return view('Auth.editprofile', compact('response'));
-        $response['status'] = 1;
-        return view('edituser', compact('response', 'title'));
+        return view('edituser', compact('response'));
     }
 
     public function editposting(Request $request, $user_id)
     {
-        // $produk = Produk::findOrFail($id)
-        // $id = User::findOrFail($id);
-        // $id = Auth::id();
-        $response = Http::put('http://firstapi2303.herokuapp.com/api/edit/{id}', $request->input())->json();
-        $success = $response['status'];
 
+        $response = Http::put('http://firstapi2303.herokuapp.com/api/edit/' .  $user_id, $request->input())->json();
 
         if ($response['status'] == 0) {
             return view('edituser', compact('response'));
         };
-
         return view('datauser', compact('response'));
+
+        // $produk = Produk::findOrFail($id)
+        // $id = User::findOrFail($id);
+        // $id = Auth::id();
+        // $response = Http::put('http://firstapi2303.herokuapp.com/api/edit/{id}', $request->input())->json();
+        // $success = $response['status'];
+
+
+        // if ($response['status'] == 0) {
+        //     return view('edituser', compact('response'));
+        // };
+
+        // return view('datauser', compact('response'));
 
         // dd($request);
 

@@ -53,15 +53,15 @@
             <tbody>
 
                 <tr>
-                    <td scope="row">{{ $response['data']['id'] }}</td>
-                    <td>{{ $response['data']['name'] }}</td>
-                    <td>{{ $response['data']['email'] }}</td>
-                    <td>{{ $response['data']['telp'] }}</td>
-                    <td> {{ $response['data']['address'] }}</td>
-                    {{-- <td>{{ $response['data']['img'] }}</td> --}}
-                    <td>{{ $response['data']['created_at'] }}</td>
-                    <td>{{ $response['data']['updated_at'] }}</td>
-                    <td><a href="{{ route('edit') }}">edit </a></td>
+                    <td scope="row">{{ $response['result']['id'] }}</td>
+                    <td>{{ $response['result']['name'] }}</td>
+                    <td>{{ $response['result']['email'] }}</td>
+                    <td>{{ $response['result']['telp'] }}</td>
+                    <td> {{ $response['result']['address'] }}</td>
+                    {{-- <td>{{ $response['result']['img'] }}</td> --}}
+                    <td>{{ $response['result']['created_at'] }}</td>
+                    <td>{{ $response['result']['updated_at'] }}</td>
+                    <td><a href="{{ route('edit', $response['result']['id']) }}">edit </a></td>
                     {{-- <td> Rp .{{ $d[number_format('harga')] }}</td> --}}
                 </tr>
 

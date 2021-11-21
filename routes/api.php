@@ -25,7 +25,7 @@ Route::post('/register', [AuthController::class, 'registrasi']);
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/loginposting', [DoaController::class, 'loginposting'])->name('loginposting');
 Route::put('/edit/{user_id}', [AuthController::class, 'editprofile']);
-
+Route::get('/user/{user_id}', [AuthController::class, 'getUser']);
 // CRUD Resto beserta menunya
 Route::post('/add/resto-dan-menu', [RestoranController::class, 'createRestoMenu']);
 Route::put('/update/resto-dan-menu/{resto_id}', [RestoranController::class, 'editRestoMenu']);
@@ -44,5 +44,5 @@ Route::delete('/del/{resto_id}/{menu_id}', [RestoranController::class, 'delResto
 Route::post('/add/menu/{resto_id}', [RestoranController::class, 'createMenu']);
 Route::put('/update/menu/{resto_id}/{menu_id}', [RestoranController::class, 'editMenu']);
 //edit password
-Route::get('/user/{user_id}', [AuthController::class, 'getUser']);
+
 Route::put('/update-pass/{user_id}', [AuthController::class, 'changePassword'])->name('update-pass');
