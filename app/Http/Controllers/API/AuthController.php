@@ -45,6 +45,9 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'address' => $request->address,
+            'telp' => $request->telp,
+            'photo' => $request->photo,
             'password' => Hash::make($request->password),
 
 
@@ -92,7 +95,7 @@ class AuthController extends Controller
 
             'status' => 1,
             'pesan' => "$request->name, Registrasi anda berhasil ! ",
-            'data' => $user
+            'result' => $user
         ], Response::HTTP_OK);
     }
     public function editprofile(Request $request, $user_id)
