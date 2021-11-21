@@ -32,7 +32,8 @@ class DoaController extends Controller
 
     public function postdata()
     {
-        return view('postdata');
+        $response['status'] = 1;
+        return view('postdata', compact('response'));
     }
 
     public function posting(Request $request)
@@ -79,7 +80,7 @@ class DoaController extends Controller
             return view('loginapi', compact('response'));
         };
 
-        return view('datauser', compact('response'));
+        return view('profile', compact('response'));
 
         // dd($request);
 
