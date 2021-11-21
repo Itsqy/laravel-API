@@ -217,6 +217,17 @@ class AuthController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function getUser($user_id)
+    {
+        $user = User::where('id', $user_id)->first();
+
+        return response()->json([
+            'status'    => 1,
+            'pesan'    => "Berhasil mendapatkan user !",
+            'result'    => $user
+        ], Response::HTTP_OK);
+    }
+
 
     public function responError($status, $pesan)
     {

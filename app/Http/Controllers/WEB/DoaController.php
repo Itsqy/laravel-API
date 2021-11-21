@@ -78,20 +78,23 @@ class DoaController extends Controller
     }
 
 
-    public function edit()
+    public function edit($user_id)
     {
         // $id = User::findOrFail($id);
         $title = 'edit aja';
+        $response = Http::get('http://firstapi2303.herokuapp.com/api/user/' . $user_id)->json();
+
+        return view('Auth.editprofile', compact('response'));
         $response['status'] = 1;
         return view('edituser', compact('response', 'title'));
     }
 
-    public function editposting(Request $request)
+    public function editposting(Request $request, $user_id)
     {
         // $produk = Produk::findOrFail($id)
         // $id = User::findOrFail($id);
         // $id = Auth::id();
-        $response = Http::put('http://firstapi2303.herokuapp.com/api/edit', $request->input())->json();
+        $response = Http::put('http://firstapi2303.herokuapp.com/api/edit/{id}', $request->input())->json();
         $success = $response['status'];
 
 

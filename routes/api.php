@@ -44,5 +44,5 @@ Route::delete('/del/{resto_id}/{menu_id}', [RestoranController::class, 'delResto
 Route::post('/add/menu/{resto_id}', [RestoranController::class, 'createMenu']);
 Route::put('/update/menu/{resto_id}/{menu_id}', [RestoranController::class, 'editMenu']);
 //edit password
-
+Route::get('/user/{user_id}', [AuthController::class, 'getUser']);
 Route::put('/update-pass/{user_id}', [AuthController::class, 'changePassword'])->name('update-pass');
