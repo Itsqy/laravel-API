@@ -37,9 +37,17 @@ class DoaController extends Controller
 
     public function posting(Request $request)
     {
-        // dd($request);
-        Http::post('http://firstapi2303.herokuapp.com/api/register', $request->input());
-        return redirect()->back();
+        $response = Http::post('http://firstapi2303.herokuapp.com/api/register', $request->input())->json();
+
+
+        if ($response['status'] == 0) {
+            return view('postdata', compact('response'));
+        };
+
+        return view('profile', compact('response'));
+        // // dd($request);
+        // Http::post('http://firstapi2303.herokuapp.com/api/register', $request->input());
+        // return redirect()->back();
     }
 
     public function kategori()

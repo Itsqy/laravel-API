@@ -40,6 +40,11 @@
         <a href="{{ route('login') }}">login</a>
     </div>
 
+    @if ($response['status'] == 0)
+        <div class="alert alert-danger">{{ $response['message'] }}</div>
+    @endif
+
+
     <div class="container pd ">
         <form action="{{ route('posting') }}" method="post">
             @csrf

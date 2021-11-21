@@ -80,6 +80,8 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'address' => $request->address,
+            'telp' => $request->telp,
             'password' => Hash::make($request->password),
 
 
